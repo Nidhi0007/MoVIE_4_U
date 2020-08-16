@@ -42,7 +42,7 @@ include "inc/nav.php";
                     <h2> SORT BY </h2>
                  <button name="fresh" class="btn btn-success" >Freshness</button>
                  
-                 <button name="dura" class="btn btn-success" >Durtion</button>
+                 <button name="dura" class="btn btn-success" >Duration</button>
           
             </div>
 
