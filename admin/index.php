@@ -68,9 +68,39 @@ echo "</div>";
 
 }
 };
+echo "<h2> Article Pagination</h2>";
+$limit=2;
+if(isSet($_GET['page'])){
+  $page=$_GET['page'];
+}else{
+  $page=1;
+}
+
+$offset=($page-1)*$limit;
+$sql= "SELECT * FROM `articletb`LIMIT {$offset},{$limit}";
+$result=mysqli_query($con,$sql);
+while($row=mysqli_fetch_array($result)){
+  
+  echo "<div id='getImage'>";
+  echo "<img src='../image/" .$row['image']."'>";
+  echo "</div>";
+  echo "<div class='col'>";
+  echo "<p> Title:" .$row['title']."</p>";
+  echo "</div>";
+  echo "<div class='col'>";
+  echo "<p> Description:" .$row['description']."</p>";
+  echo "</div>";
+  echo "<div class='col'>";
+  echo "<p> Date:" .$row['date']."</p>";
+  echo "</div>";
+
+  
+
+
+}
 
 $sql1= "SELECT * FROM `articletb`";
-$limit=2;
+
 $result1=mysqli_query($con,$sql1);
 if(mysqli_num_rows($result1)>0){
   $total_records=mysqli_num_rows($result1);
@@ -78,36 +108,14 @@ if(mysqli_num_rows($result1)>0){
   $total_page=ceil($total_records/ $limit);
   echo '<ul class="pagination admin-pagination">';
   for($i=1; $i <= $total_page; $i++){
-    echo '<li><a href="user.php?page='.$i.'">'.$i.'</a></li>';
+    echo '<li><a href="index.php?page='.$i.'"><h4>' .$i. '</h4></a></li>';
   }
 
   echo '</ul>';
 
 }
 
-  
-  $page=$_GET['page'];
-  $offset=($page-1)*$limit;
-$sql1= "SELECT * FROM `articletb`LIMIT {$offset},{$limit}";
-  while($row=mysqli_fetch_array($result1)){
-    
-    echo "<div id='getImage'>";
-    echo "<img src='../image/" .$row['image']."'>";
-    echo "</div>";
-    echo "<div class='col'>";
-    echo "<p> Title:" .$row['title']."</p>";
-    echo "</div>";
-    echo "<div class='col'>";
-    echo "<p> Description:" .$row['description']."</p>";
-    echo "</div>";
-    echo "<div class='col'>";
-    echo "<p> Date:" .$row['date']."</p>";
-    echo "</div>";
- 
-    
-  
 
-}
 
 
 

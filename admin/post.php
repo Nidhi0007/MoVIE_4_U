@@ -43,6 +43,7 @@ include "inc/nav.php";
                     <option value="Comedy">Comedy</option>
                     <option value="Romance">Romance</option>
                     <option value="Crime">Crime</option>
+                    <option value="Crime">Drama</option>
                     </select>
  
                     </div>
