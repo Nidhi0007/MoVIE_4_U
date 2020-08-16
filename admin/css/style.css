@@ -1,0 +1,11 @@
+img {
+    vertical-align: middle;
+    border-style: none;
+    width: 100px;
+}
+.center {
+    /* align-items: center;
+    display: block; */
+    /* margin-left: 234px; */
+    padding: 41px 455px;
+}
